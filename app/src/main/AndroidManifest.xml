@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.skknstore19359.frostweb"
+    tools:ignore="InnerclassSeparator">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.skknstore19359.frostweb.FrostWebApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+
+        <activity
+            android:exported="true"
+            android:name="com.skknstore19359.frostweb.BrowserActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|uiMode"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9617154779646346~3144062767"/>
+<!--            android:value="ca-app-pub-3940256099942544~3347511713"/>-->
+
+
+
+        <activity
+            android:exported="true"
+            android:name="com.skknstore19359.frostweb.WelcomeActivity"
+            android:configChanges="keyboardHidden"
+            android:parentActivityName="com.skknstore19359.frostweb.BrowserActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="newtab"
+                    android:scheme="frostweb" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name="com.skknstore19359.frostweb.History.HistoryActivity"
+            android:parentActivityName="com.skknstore19359.frostweb.BrowserActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:exported="true"
+            android:name="com.skknstore19359.frostweb.Settings.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName="com.skknstore19359.frostweb.BrowserActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:exported="true"
+            android:name="com.skknstore19359.frostweb.Tabs.TabsActivity"
+            android:label="@string/tabs"
+            android:parentActivityName="com.skknstore19359.frostweb.BrowserActivity"
+            android:theme="@style/AppTheme" />
+    </application>
+
+</manifest>
